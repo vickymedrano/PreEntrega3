@@ -1,0 +1,229 @@
+//hojas parciales
+
+@import "utilities/variables";
+@import "utilities/listas";
+@import "utilities/mixin";
+@import "utilities/extend.scss";
+
+
+/* reset */
+*{ 
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Dosis', sans-serif;
+}
+
+/* estilo del div padre - estructura de la pagina*/
+body {
+    div{
+        display: grid;
+        grid-template-columns: 20% 80% ;
+        
+        /* grid-template-area*/
+    
+        grid-template-areas: 
+        "header header"
+        "nav main"
+        "footer footer";
+        }
+    }
+
+   
+
+   /* estilos de header */
+
+header {
+@include animacion (header);
+    .logo {
+    height: 100px ;
+    width: 100px ;
+
+    }
+    .img--facebook {
+        @extend %iconos-redes;
+        right: 10px;
+
+    }
+    .img--instagram {   
+        @extend %iconos-redes; 
+        right: 45px;
+    }
+    h1 {
+        position: absolute;
+        top: 2rem;
+        color: aliceblue;
+        text-align: center;
+        display: inline-block;
+        text-transform: uppercase;
+        font-family: 'Libre Baskerville', serif;         
+    }
+
+}
+
+/* estilos de nav */
+
+nav {
+    grid-area:nav;
+    margin: 2rem;
+    padding: 1rem;
+    border: 3px solid $color-principal;
+    border-radius: 20px;
+    text-align:center; 
+    ul{
+        li{
+            color: $color-secundario;
+            list-style: none;
+            font-weight: bold;
+            line-height: 2;
+            &:hover {filter: drop-shadow(8px 8px 10px $color-principal);
+            }
+
+            a{
+                text-decoration: none;
+                color: $color-secundario;
+            }
+        }
+    } 
+}
+
+/* estilos main */
+
+main {
+    grid-area:main;
+         div {
+                display: flex;
+                flex-direction: row;
+             div {
+                line-height: 2;
+                margin-top: 2rem;
+                flex-direction: column;
+                text-align:center;
+                color: $color-secundario;
+                padding: 2rem;}
+                h2{
+                font-size: nth($tamaños-fuente, 2);}
+                p {
+                    font-size: nth($tamaños-fuente, 3);}
+                
+                
+                a {
+                    font-size: nth($tamaños-fuente,3);
+                    color: $color-principal;
+                    text-decoration: none;
+                    padding: 2rem;
+                   height: 50%;
+                   text-align: center;
+                   border: 3px;}
+            }
+            .contactos {
+                height: 1000px;
+                display:block        
+            }
+        } 
+                
+            
+        
+    
+ 
+
+ .servicios__img {
+    max-width: 50%;
+    max-height: 50%;  
+}
+
+.turno {
+    @extend %contenedor-main
+}
+.contactos {
+    @extend %contenedor-main;
+}
+
+.main__nuestros-servicios {
+    display: flex;
+    flex-direction: row;
+}
+
+/* estilos de footer */
+
+footer {
+    @include animacion (footer);
+    color: aliceblue;
+    padding: 1rem;
+    line-height: 1,5;
+    list-style: none;
+}
+
+
+
+
+  /*media queries*/
+  @media screen and (max-width: 600px) {
+  /* estilos de body */
+  
+  body {
+    div{
+        display: flex;
+        flex-direction: column;
+        }
+    
+
+   /* estilos de header */
+
+   
+    .img--facebook {
+        position: fixed;
+        top: 110px;
+        left: 2px;
+
+    }
+    .img--instagram {   
+        position: fixed;
+        top: 150px;
+        left: 2px;
+    }
+}
+    
+/* estilos de nav */
+
+nav {
+     ul{
+        li{
+            display: inline-block;
+            }
+        }
+    }
+
+/* estilos main */
+
+main {
+    text-align: center;
+
+         div {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }  
+        .main__donde-estamos {
+            width: 60%;
+        }
+
+        .main__nuestros-servicios {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        
+        }
+        
+        .card-img-top {
+            width: 50%;
+            height: 50%;
+            margin: auto
+        }
+        
+        .color {
+            background-color:  rgb(84, 14, 74) !important; 
+            margin: auto
+        }
+        }
+        }
